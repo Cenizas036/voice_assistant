@@ -4,7 +4,7 @@ A fully local, voice-driven AI assistant that transcribes speech via **Whisper**
 
 ## 🖥️ Preview
 
-![Vox AI – Voice Assistant UI](./assets/pic.png)
+![Vox AI – Voice Assistant UI](pic.png)
 
 > **Vox AI** — dark-themed interface with sidebar conversation history, 
 > Whisper + Ollama status indicators, and a mic-enabled command bar.
