@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar glass-panel">
+            <h1 class="logo">Vox AI</h1>
+            <div class="status-box">
+                <div class="pulse-indicator" id="status-pulse"></div>
+                <div id="system-status" class="status-texts">Checking systems...</div>
+            </div>
+            
+            <button id="btn-new-chat" class="btn-new-chat">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                New Chat
+            </button>
+
+            <div class="memory-container">
+                <div class="memory-header">
+                    <h3>Conversations</h3>
+                </div>
+                <div id="thread-list" class="scroll-area custom-scrollbar" style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                    <p class="empty-state">No conversations yet.</p>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <div class="conversation-view scroll-area custom-scrollbar" id="conversation-container">
+                <div class="hero-state">
+                    <h2>What can I help you build today?</h2>
+                    <p>Commands: <code>create file</code>, <code>write code</code>, <code>summarize</code>, <code>chat</code></p>
+                </div>
+            </div>
+
+            <div id="confirmation-banner" class="conf-banner hidden">
+                <div class="conf-content">
+                    <div class="conf-icon">⚠️</div>
+                    <div id="conf-msg" class="markdown-body">Confirmation required</div>
+                </div>
+                <div class="conf-actions">
+                    <button id="btn-confirm" class="btn-success">Confirm</button>
+                    <button id="btn-cancel" class="btn-danger">Cancel</button>
+                </div>
+            </div>
+            
+            <div class="input-deck glass-panel">
+                <div class="input-controls">
+                    <button id="btn-record" class="mic-btn glow-effect" title="Hold or Click to Record">
+                        <svg viewBox="0 0 24 24" fill="none" class="mic-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                    </button>
+                    <div id="visualizer-container" class="hidden">
+                        <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                    </div>
+                    <div class="text-input-wrapper">
+                        <textarea id="text-input" placeholder="Type a command..." rows="1"></textarea>
+                    </div>
+                    <button id="btn-send" class="btn-primary" title="Send Request">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                    <button id="btn-clear" class="btn-ghost-small">Clear</button>
+                </div>
+            </div>
+        </main>
+        
+        <aside class="side-drawer glass-panel" id="side-drawer">
+            <div class="drawer-header">
+                <h3>💻 Code & Meta</h3>
+                <button class="btn-ghost-small" id="btn-close-drawer">✕</button>
+            </div>
+            
+            <div class="drawer-content scroll-area custom-scrollbar">
+                <div id="drawer-file-status" class="file-status hidden markdown-body"></div>
+                
+                <div class="code-container hidden" id="drawer-code-container">
+                    <pre><code id="code-box"></code></pre>
+                    <button class="copy-btn" id="btn-copy-code">Copy</button>
+                </div>
+                
+                <div class="intent-container hidden" id="drawer-intent-container">
+                    <h4>Detected Intent</h4>
+                    <pre><code id="intent-box"></code></pre>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.0/marked.min.js"></script>
+    <script src="app.js?v=3"></script>
+</body>
+</html>
