@@ -2,6 +2,13 @@
 
 A fully local, voice-driven AI assistant that transcribes speech via **Whisper**, classifies intent via **Ollama**, and executes tools — all wrapped in a polished **Gradio** UI.
 
+## 🖥️ Preview
+
+![Vox AI – Voice Assistant UI](./assets/pic.png)
+
+> **Vox AI** — dark-themed interface with sidebar conversation history, 
+> Whisper + Ollama status indicators, and a mic-enabled command bar.
+
 ---
 
 ## 🏗️ Architecture
